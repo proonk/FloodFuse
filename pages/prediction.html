@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flood Prediction - Flood AI</title>
+    <title>Flood Prediction - Flood Fuse</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Add Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
     <div class="container">
         <!-- Sidebar Dashboard -->
         <nav class="sidebar">
             <div class="sidebar-header">
-                <h2>Flood AI</h2>
-                <p class="sidebar-subtitle">Intelligent Flood Monitoring</p>
+                <div class="sidebar-logo">
+                    <img src="../assets/logo.png" alt="Flood Fuse Logo" class="sidebar-logo-img">
+                    <div class="logo-text">
+                        <h2>Flood Fuse</h2>
+                        <p class="sidebar-subtitle">Intelligent Flood Monitoring</p>
+                    </div>
+                </div>
             </div>
             <ul class="nav-links">
                 <li class="nav-item active" data-page="prediction">
@@ -156,30 +165,29 @@
                             </button>
                         </div>
                     </div>
-                    <div class="map-placeholder">
-                        <div class="map-overlay">
-                            <div class="map-legend">
-                                <h3>Risk Levels</h3>
-                                <div class="legend-item">
-                                    <span class="legend-color high-risk"></span>
-                                    <span>High Risk</span>
-                                </div>
-                                <div class="legend-item">
-                                    <span class="legend-color medium-risk"></span>
-                                    <span>Medium Risk</span>
-                                </div>
-                                <div class="legend-item">
-                                    <span class="legend-color low-risk"></span>
-                                    <span>Low Risk</span>
-                                </div>
-                            </div>
+                    <div class="map-placeholder" style="height: 400px;">
+                        <!-- Map will be initialized here -->
+                    </div>
+                    <div class="map-legend">
+                        <h3>Risk Levels</h3>
+                        <div class="legend-item">
+                            <span class="legend-color high-risk"></span>
+                            <span>High Risk</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color medium-risk"></span>
+                            <span>Medium Risk</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color low-risk"></span>
+                            <span>Low Risk</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="additional-info">
-                <div class="info-card">
+                <div class="info-card weather-forecast">
                     <h3>Weather Forecast</h3>
                     <div class="weather-items">
                         <div class="weather-item">
@@ -194,19 +202,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="info-card">
+                <div class="info-card recent-alerts">
                     <h3>Recent Alerts</h3>
                     <div class="alert-items">
-                        <div class="alert-item">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span>River level rising rapidly</span>
-                            <span class="alert-time">2h ago</span>
-                        </div>
-                        <div class="alert-item">
-                            <i class="fas fa-info-circle"></i>
-                            <span>Heavy rainfall expected</span>
-                            <span class="alert-time">4h ago</span>
-                        </div>
+                        <!-- Alerts will be dynamically inserted here -->
                     </div>
                 </div>
             </div>

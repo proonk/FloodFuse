@@ -90,8 +90,9 @@ function handleCreatePost() {
 
     // Create new post object
     const newPost = {
-        id: Date.now(),
+        id: 'update-1',
         type: 'update',
+        title: 'Flood Fuse Update',
         author: 'Admin',
         avatar: 'https://ui-avatars.com/api/?name=Admin',
         time: 'Just now',
