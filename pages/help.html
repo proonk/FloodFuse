@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - Flood AI</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Dashboard -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Flood AI</h2>
+                <p class="sidebar-subtitle">Intelligent Flood Monitoring</p>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item" data-page="prediction">
+                    <a href="prediction.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Prediction</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="alert">
+                    <a href="alert.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Alert</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="community">
+                    <a href="community.html">
+                        <i class="fas fa-users"></i>
+                        <span>Community</span>
+                    </a>
+                </li>
+                <li class="nav-item active" data-page="help">
+                    <a href="help.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="about">
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <i class="fas fa-circle status-active"></i>
+                    <span>System Active</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="header-left">
+                    <h1>Help & Support Center</h1>
+                    <p class="last-updated">Last updated: <span id="lastUpdate">Just now</span></p>
+                </div>
+                <div class="header-right">
+                    <div class="notifications" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-info" id="userProfile">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="username">Admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Support Section -->
+            <div class="quick-support">
+                <div class="support-card emergency">
+                    <div class="support-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="support-content">
+                        <h3>Emergency Contact</h3>
+                        <p>For immediate assistance during flood emergencies</p>
+                        <a href="tel:911" class="btn primary">Call Emergency Services</a>
+                    </div>
+                </div>
+                <div class="support-card chat">
+                    <div class="support-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="support-content">
+                        <h3>Live Chat Support</h3>
+                        <p>Chat with our support team</p>
+                        <button class="btn secondary" id="startChat">Start Chat</button>
+                    </div>
+                </div>
+                <div class="support-card email">
+                    <div class="support-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="support-content">
+                        <h3>Email Support</h3>
+                        <p>Get help via email</p>
+                        <a href="mailto:support@floodai.com" class="btn secondary">Send Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Categories -->
+            <div class="help-search-section">
+                <div class="help-search">
+                    <input type="text" placeholder="Search for help topics..." id="helpSearch">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="help-categories">
+                    <button class="category-btn active" data-category="all">All Topics</button>
+                    <button class="category-btn" data-category="getting-started">Getting Started</button>
+                    <button class="category-btn" data-category="predictions">Predictions</button>
+                    <button class="category-btn" data-category="alerts">Alerts</button>
+                    <button class="category-btn" data-category="community">Community</button>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How accurate are the flood predictions?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our flood predictions are based on advanced AI algorithms that analyze multiple data points including rainfall, river levels, soil moisture, and historical data. The system maintains an accuracy rate of approximately 85-90% for predictions within a 24-hour window.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I set up alert notifications?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To set up alerts:</p>
+                            <ol>
+                                <li>Go to the Alerts page</li>
+                                <li>Click on "Manage Notifications"</li>
+                                <li>Choose your preferred alert methods (SMS, email, push notifications)</li>
+                                <li>Set your location and risk threshold</li>
+                                <li>Save your settings</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What should I do during a flood warning?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>During a flood warning:</p>
+                            <ul>
+                                <li>Stay tuned to emergency broadcasts</li>
+                                <li>Follow evacuation orders immediately</li>
+                                <li>Move to higher ground if necessary</li>
+                                <li>Avoid walking or driving through flood waters</li>
+                                <li>Keep emergency contacts handy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Tutorials -->
+            <div class="tutorials-section">
+                <h2>Video Tutorials</h2>
+                <div class="tutorial-grid">
+                    <div class="tutorial-card">
+                        <div class="tutorial-thumbnail">
+                            <img src="https://img.youtube.com/vi/placeholder1/maxresdefault.jpg" alt="Getting Started">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="tutorial-content">
+                            <h3>Getting Started with Flood AI</h3>
+                            <p>Learn the basics of using our flood prediction system</p>
+                            <span class="duration">5:30</span>
+                        </div>
+                    </div>
+                    <div class="tutorial-card">
+                        <div class="tutorial-thumbnail">
+                            <img src="https://img.youtube.com/vi/placeholder2/maxresdefault.jpg" alt="Understanding Predictions">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="tutorial-content">
+                            <h3>Understanding Flood Predictions</h3>
+                            <p>How to interpret prediction data and risk levels</p>
+                            <span class="duration">4:15</span>
+                        </div>
+                    </div>
+                    <div class="tutorial-card">
+                        <div class="tutorial-thumbnail">
+                            <img src="https://img.youtube.com/vi/placeholder3/maxresdefault.jpg" alt="Community Features">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="tutorial-content">
+                            <h3>Using Community Features</h3>
+                            <p>How to share updates and interact with other users</p>
+                            <span class="duration">3:45</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Guides -->
+            <div class="guides-section">
+                <h2>User Guides</h2>
+                <div class="guides-grid">
+                    <a href="#" class="guide-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Quick Start Guide</h3>
+                        <p>Get started with Flood AI in minutes</p>
+                    </a>
+                    <a href="#" class="guide-card">
+                        <i class="fas fa-map"></i>
+                        <h3>Map Navigation</h3>
+                        <p>Learn to use interactive flood maps</p>
+                    </a>
+                    <a href="#" class="guide-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile App Guide</h3>
+                        <p>Using Flood AI on your mobile device</p>
+                    </a>
+                    <a href="#" class="guide-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Safety Protocol</h3>
+                        <p>Emergency procedures and safety measures</p>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Live Chat Modal -->
+    <div class="modal" id="chatModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Live Support Chat</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Messages will be loaded here -->
+                    </div>
+                    <div class="chat-input">
+                        <textarea placeholder="Type your message..." rows="2"></textarea>
+                        <button class="btn primary">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="../pages/help.js"></script>
+</body>
+</html> 

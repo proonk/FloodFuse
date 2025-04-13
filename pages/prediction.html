@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Prediction - Flood AI</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Dashboard -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Flood AI</h2>
+                <p class="sidebar-subtitle">Intelligent Flood Monitoring</p>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item active" data-page="prediction">
+                    <a href="prediction.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Prediction</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="alert">
+                    <a href="alert.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Alert</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="community">
+                    <a href="community.html">
+                        <i class="fas fa-users"></i>
+                        <span>Community</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="help">
+                    <a href="help.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="about">
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <i class="fas fa-circle status-active"></i>
+                    <span>System Active</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="header-left">
+                    <h1>Flood Prediction Dashboard</h1>
+                    <div class="header-controls">
+                        <p class="last-updated">Last updated: <span id="lastUpdate">Just now</span></p>
+                        <div class="location-selector">
+                            <label for="areaSelect">Select Area:</label>
+                            <select id="areaSelect" class="area-dropdown">
+                                <option value="sibu">Sibu</option>
+                                <option value="bintulu">Bintulu</option>
+                                <option value="kuching">Kuching</option>
+                                <option value="miri">Miri</option>
+                                <option value="sri-aman">Sri Aman</option>
+                                <option value="sarikei">Sarikei</option>
+                                <option value="mukah">Mukah</option>
+                                <option value="limbang">Limbang</option>
+                                <option value="lawas">Lawas</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="notifications" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-info" id="userProfile">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="username">Admin</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="prediction-container">
+                <div class="prediction-card">
+                    <div class="card-header">
+                        <h2>Current Flood Risk</h2>
+                        <div class="risk-trend">
+                            <i class="fas fa-arrow-up trend-up"></i>
+                            <span>Increasing</span>
+                        </div>
+                    </div>
+                    <div class="risk-level">
+                        <div class="percentage">75%</div>
+                        <div class="risk-indicator high-risk"></div>
+                    </div>
+                    <div class="risk-description">
+                        <p>High risk of flooding in the next 24 hours. Take necessary precautions.</p>
+                    </div>
+                    <div class="river-info">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <div class="info-content">
+                                <span class="label">River Level</span>
+                                <span class="value">2.5m</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-cloud-rain"></i>
+                            </div>
+                            <div class="info-content">
+                                <span class="label">Rainfall (24h)</span>
+                                <span class="value">150mm</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="info-content">
+                                <span class="label">Soil Moisture</span>
+                                <span class="value">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn primary" id="downloadReport">
+                            <i class="fas fa-download"></i>
+                            Download Report
+                        </button>
+                        <button class="btn secondary" id="shareAlert">
+                            <i class="fas fa-share-alt"></i>
+                            Share Alert
+                        </button>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <div class="map-header">
+                        <h2>Flood Risk Map</h2>
+                        <div class="map-controls">
+                            <button class="map-btn" id="toggleLayers">
+                                <i class="fas fa-layer-group"></i>
+                                Layers
+                            </button>
+                            <button class="map-btn" id="searchLocation">
+                                <i class="fas fa-search"></i>
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <div class="map-overlay">
+                            <div class="map-legend">
+                                <h3>Risk Levels</h3>
+                                <div class="legend-item">
+                                    <span class="legend-color high-risk"></span>
+                                    <span>High Risk</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color medium-risk"></span>
+                                    <span>Medium Risk</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color low-risk"></span>
+                                    <span>Low Risk</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="additional-info">
+                <div class="info-card">
+                    <h3>Weather Forecast</h3>
+                    <div class="weather-items">
+                        <div class="weather-item">
+                            <i class="fas fa-sun"></i>
+                            <span>Today</span>
+                            <span class="temp">28°C</span>
+                        </div>
+                        <div class="weather-item">
+                            <i class="fas fa-cloud-rain"></i>
+                            <span>Tomorrow</span>
+                            <span class="temp">25°C</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Recent Alerts</h3>
+                    <div class="alert-items">
+                        <div class="alert-item">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>River level rising rapidly</span>
+                            <span class="alert-time">2h ago</span>
+                        </div>
+                        <div class="alert-item">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Heavy rainfall expected</span>
+                            <span class="alert-time">4h ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Layers Modal -->
+    <div class="modal" id="layersModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Map Layers</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="layer-options">
+                    <label class="layer-option">
+                        <input type="checkbox" checked>
+                        <span>Flood Risk Areas</span>
+                    </label>
+                    <label class="layer-option">
+                        <input type="checkbox" checked>
+                        <span>River Network</span>
+                    </label>
+                    <label class="layer-option">
+                        <input type="checkbox" checked>
+                        <span>Rainfall Data</span>
+                    </label>
+                    <label class="layer-option">
+                        <input type="checkbox">
+                        <span>Historical Floods</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Search Location</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="search-container">
+                    <input type="text" placeholder="Enter location..." id="searchInput">
+                    <button class="btn primary">Search</button>
+                </div>
+                <div class="search-results">
+                    <!-- Search results will be added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="../pages/prediction.js"></script>
+</body>
+</html> 

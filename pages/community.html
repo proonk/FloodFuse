@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Flood AI</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Dashboard -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Flood AI</h2>
+                <p class="sidebar-subtitle">Intelligent Flood Monitoring</p>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item" data-page="prediction">
+                    <a href="prediction.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Prediction</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="alert">
+                    <a href="alert.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Alert</span>
+                    </a>
+                </li>
+                <li class="nav-item active" data-page="community">
+                    <a href="community.html">
+                        <i class="fas fa-users"></i>
+                        <span>Community</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="help">
+                    <a href="help.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="about">
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <i class="fas fa-circle status-active"></i>
+                    <span>System Active</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="header-left">
+                    <h1>Community Hub</h1>
+                    <p class="last-updated">Last updated: <span id="lastUpdate">Just now</span></p>
+                </div>
+                <div class="header-right">
+                    <div class="notifications" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-info" id="userProfile">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="username">Admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Post Section -->
+            <div class="create-post-section">
+                <div class="post-card">
+                    <div class="post-header">
+                        <h2>Share an Update</h2>
+                    </div>
+                    <div class="post-form">
+                        <textarea placeholder="What's happening in your area?" rows="3"></textarea>
+                        <div class="post-actions">
+                            <div class="post-attachments">
+                                <button class="attachment-btn">
+                                    <i class="fas fa-camera"></i>
+                                    <span>Photo</span>
+                                </button>
+                                <button class="attachment-btn">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Location</span>
+                                </button>
+                                <button class="attachment-btn">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Alert Level</span>
+                                </button>
+                            </div>
+                            <button class="btn primary">Share Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Feed -->
+            <div class="community-feed">
+                <!-- Filter Options -->
+                <div class="feed-filters">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">All Updates</button>
+                        <button class="filter-tab">Alerts</button>
+                        <button class="filter-tab">Reports</button>
+                        <button class="filter-tab">Discussions</button>
+                    </div>
+                    <div class="sort-options">
+                        <select class="filter-select">
+                            <option value="recent">Most Recent</option>
+                            <option value="urgent">Most Urgent</option>
+                            <option value="discussed">Most Discussed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Feed Items -->
+                <div class="feed-items">
+                    <!-- Emergency Alert Post -->
+                    <div class="feed-item urgent">
+                        <div class="post-user-info">
+                            <img src="https://ui-avatars.com/api/?name=Emergency+Response&background=ff4444&color=fff" alt="Emergency Response" class="user-avatar">
+                            <div class="user-details">
+                                <h3>Emergency Response Team</h3>
+                                <span class="post-time">10 minutes ago</span>
+                            </div>
+                            <div class="post-badge emergency">
+                                <i class="fas fa-exclamation-circle"></i>
+                                Emergency
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <p>⚠️ URGENT: Flash flood warning for Downtown area. River levels rising rapidly. Please avoid riverside areas and follow evacuation instructions if provided.</p>
+                            <div class="post-image">
+                                <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5" alt="Flood Warning">
+                            </div>
+                            <div class="alert-metrics">
+                                <div class="metric">
+                                    <i class="fas fa-water"></i>
+                                    <span>River Level: 3.2m (Rising)</span>
+                                </div>
+                                <div class="metric">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Location: Downtown River District</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                                Share
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-comment"></i>
+                                Comment (23)
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-bookmark"></i>
+                                Save
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Community Update Post -->
+                    <div class="feed-item">
+                        <div class="post-user-info">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+Johnson" alt="Sarah Johnson" class="user-avatar">
+                            <div class="user-details">
+                                <h3>Sarah Johnson</h3>
+                                <span class="post-time">1 hour ago</span>
+                            </div>
+                            <div class="post-badge update">
+                                <i class="fas fa-info-circle"></i>
+                                Update
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <p>Water levels at Central Park have started receding. Roads are still slippery - drive carefully! Thanks to all volunteers helping with sandbags. 🙏</p>
+                            <div class="post-gallery">
+                                <img src="https://images.unsplash.com/photo-1583669309361-c5cce6bd343b" alt="Flood Update">
+                                <img src="https://images.unsplash.com/photo-1583669309361-c5cce6bd343b" alt="Volunteers">
+                            </div>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn">
+                                <i class="fas fa-heart"></i>
+                                Like (45)
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-comment"></i>
+                                Comment (12)
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Discussion Post -->
+                    <div class="feed-item">
+                        <div class="post-user-info">
+                            <img src="https://ui-avatars.com/api/?name=Mike+Chen" alt="Mike Chen" class="user-avatar">
+                            <div class="user-details">
+                                <h3>Mike Chen</h3>
+                                <span class="post-time">3 hours ago</span>
+                            </div>
+                            <div class="post-badge discussion">
+                                <i class="fas fa-comments"></i>
+                                Discussion
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <p>Has anyone noticed the new flood barriers installed near River Street? They seem to be working well with today's heavy rain. Thoughts on the effectiveness?</p>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn">
+                                <i class="fas fa-heart"></i>
+                                Like (28)
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-comment"></i>
+                                Comment (34)
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More -->
+                <div class="load-more">
+                    <button class="btn secondary">Load More Updates</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Comment Modal -->
+    <div class="modal" id="commentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Comments</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="comments-container">
+                    <!-- Comments will be loaded here -->
+                </div>
+                <div class="comment-form">
+                    <textarea placeholder="Write a comment..." rows="2"></textarea>
+                    <button class="btn primary">Post Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="../pages/community.js"></script>
+</body>
+</html> 

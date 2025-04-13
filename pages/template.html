@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Prediction System</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Dashboard -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Flood AI</h2>
+                <p class="sidebar-subtitle">Intelligent Flood Monitoring</p>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item" data-page="prediction">
+                    <a href="prediction.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Prediction</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="report">
+                    <a href="report.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Report</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="community">
+                    <a href="community.html">
+                        <i class="fas fa-users"></i>
+                        <span>Community</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="help">
+                    <a href="help.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="about">
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <i class="fas fa-circle status-active"></i>
+                    <span>System Active</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="header-left">
+                    <h1 id="page-title">Page Title</h1>
+                    <p class="last-updated">Last updated: <span id="lastUpdate">Just now</span></p>
+                </div>
+                <div class="header-right">
+                    <div class="notifications" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">0</span>
+                    </div>
+                    <div class="user-info" id="userProfile">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="username">Admin</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page Content will be inserted here -->
+            <div id="page-content">
+                <!-- Content will be dynamically loaded -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Modal -->
+    <div class="modal" id="notificationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Notifications</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="notification-list">
+                    <!-- Notifications will be added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>User Profile</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="profile-details">
+                        <h4>Admin User</h4>
+                        <p>Administrator</p>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn secondary">Edit Profile</button>
+                    <button class="btn primary">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html> 

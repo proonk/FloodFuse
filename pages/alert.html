@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Alerts - Flood AI</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Dashboard -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Flood AI</h2>
+                <p class="sidebar-subtitle">Intelligent Flood Monitoring</p>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="prediction.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Prediction</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="alert.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Alerts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="community.html">
+                        <i class="fas fa-users"></i>
+                        <span>Community</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="help.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <i class="fas fa-circle status-active"></i>
+                    <span>System Active</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="header-left">
+                    <h1>Flood Alerts Dashboard</h1>
+                    <p class="last-updated">Last updated: <span id="lastUpdate">Just now</span></p>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="username">Admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alert Filters -->
+            <div class="alert-filters">
+                <div class="filter-group">
+                    <label>Alert Type</label>
+                    <select class="filter-select">
+                        <option value="all">All Alerts</option>
+                        <option value="warning">Warnings</option>
+                        <option value="alert">Alerts</option>
+                        <option value="info">Information</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Time Range</label>
+                    <select class="filter-select">
+                        <option value="24h">Last 24 Hours</option>
+                        <option value="7d">Last 7 Days</option>
+                        <option value="30d">Last 30 Days</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Severity</label>
+                    <select class="filter-select">
+                        <option value="all">All Levels</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <button class="btn primary filter-btn">
+                    <i class="fas fa-filter"></i>
+                    Apply Filters
+                </button>
+            </div>
+
+            <!-- Active Alerts -->
+            <div class="alert-section">
+                <div class="section-header">
+                    <h2>Active Alerts</h2>
+                    <button class="btn secondary">
+                        <i class="fas fa-plus"></i>
+                        Create New Alert
+                    </button>
+                </div>
+                <div class="alert-cards">
+                    <div class="alert-card high-priority">
+                        <div class="alert-header">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="alert-title">
+                                <h3>High Flood Risk - North District</h3>
+                                <span class="alert-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="alert-content">
+                            <p>River levels rising rapidly. Expected to exceed flood threshold within 4 hours.</p>
+                            <div class="alert-metrics">
+                                <div class="metric">
+                                    <span class="label">River Level</span>
+                                    <span class="value">2.5m</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="label">Rainfall (24h)</span>
+                                    <span class="value">150mm</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="label">Risk Level</span>
+                                    <span class="value high">High</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert-actions">
+                            <button class="btn primary">
+                                <i class="fas fa-share-alt"></i>
+                                Share Alert
+                            </button>
+                            <button class="btn secondary">
+                                <i class="fas fa-download"></i>
+                                Download Report
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="alert-card medium-priority">
+                        <div class="alert-header">
+                            <div class="alert-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="alert-title">
+                                <h3>Heavy Rainfall Warning</h3>
+                                <span class="alert-time">4 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="alert-content">
+                            <p>Heavy rainfall expected in the next 12 hours. Monitor river levels closely.</p>
+                            <div class="alert-metrics">
+                                <div class="metric">
+                                    <span class="label">Expected Rainfall</span>
+                                    <span class="value">80mm</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="label">Duration</span>
+                                    <span class="value">12h</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="label">Risk Level</span>
+                                    <span class="value medium">Medium</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert-actions">
+                            <button class="btn primary">
+                                <i class="fas fa-share-alt"></i>
+                                Share Alert
+                            </button>
+                            <button class="btn secondary">
+                                <i class="fas fa-download"></i>
+                                Download Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alert History -->
+            <div class="alert-section">
+                <div class="section-header">
+                    <h2>Alert History</h2>
+                    <div class="pagination">
+                        <button class="btn secondary">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span class="page-info">Page 1 of 5</span>
+                        <button class="btn secondary">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="alert-history">
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="history-content">
+                            <h4>Flood Warning Resolved</h4>
+                            <p>River levels returned to normal in South District</p>
+                            <span class="history-time">Yesterday, 3:45 PM</span>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="history-content">
+                            <h4>Soil Saturation Alert</h4>
+                            <p>High soil moisture levels detected in West Region</p>
+                            <span class="history-time">2 days ago, 10:30 AM</span>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="history-content">
+                            <h4>System Maintenance</h4>
+                            <p>Scheduled maintenance completed successfully</p>
+                            <span class="history-time">3 days ago, 8:00 AM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="alert.js"></script>
+</body>
+</html> 

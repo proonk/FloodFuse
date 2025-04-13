@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Flood AI</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Dashboard -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Flood AI</h2>
+                <p class="sidebar-subtitle">Intelligent Flood Monitoring</p>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item" data-page="prediction">
+                    <a href="prediction.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Prediction</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="alert">
+                    <a href="alert.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Alert</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="community">
+                    <a href="community.html">
+                        <i class="fas fa-users"></i>
+                        <span>Community</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="help">
+                    <a href="help.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+                </li>
+                <li class="nav-item active" data-page="about">
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <i class="fas fa-circle status-active"></i>
+                    <span>System Active</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="header-left">
+                    <h1>About Flood AI</h1>
+                    <p class="last-updated">Last updated: <span id="lastUpdate">Just now</span></p>
+                </div>
+                <div class="header-right">
+                    <div class="notifications" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-info" id="userProfile">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="username">Admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission Section -->
+            <section class="about-section mission-section">
+                <div class="section-content">
+                    <div class="mission-header">
+                        <i class="fas fa-bullseye"></i>
+                        <h2>Our Mission</h2>
+                    </div>
+                    <p class="mission-text">
+                        Flood AI is dedicated to protecting communities across Sarawak through advanced flood prediction and early warning systems. 
+                        Our mission is to leverage cutting-edge artificial intelligence and real-time data analysis to provide accurate, 
+                        timely flood forecasts and empower Sarawakian communities to make informed decisions during critical weather events. 
+                        We work closely with local authorities and communities to ensure the safety and resilience of our people.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <h3>2.8M+</h3>
+                            <p>Protected Sarawakians</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h3>82</h3>
+                            <p>Districts Monitored</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>92%</h3>
+                            <p>Prediction Accuracy</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-clock"></i>
+                            <h3>24/7</h3>
+                            <p>Active Monitoring</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technology Section -->
+            <section class="about-section technology-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <i class="fas fa-microchip"></i>
+                        <h2>Our Technology</h2>
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Deep Learning Models</h3>
+                            <p>Advanced LSTM and CNN models analyze historical flood data, weather patterns, and terrain information to predict flood risks in Sarawak's diverse landscape</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">
+                                <i class="fas fa-satellite"></i>
+                            </div>
+                            <h3>Remote Sensing</h3>
+                            <p>Integration with NOAA satellites and DID Telemetry Systems for real-time monitoring of rainfall, river levels, and weather conditions across Sarawak</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h3>Hydrological Modeling</h3>
+                            <p>Advanced HEC-RAS and MIKE FLOOD models combined with local watershed data for accurate river flow and flood extent predictions</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3>IoT Sensor Network</h3>
+                            <p>Extensive network of water level sensors, rain gauges, and weather stations across Sarawak's major river basins and flood-prone areas</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h3>GIS Integration</h3>
+                            <p>Advanced mapping using ArcGIS and QGIS with high-resolution DEM data for precise flood zone mapping and risk assessment</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <h3>Alert System</h3>
+                            <p>Multi-channel early warning system integrated with Sarawak's emergency services, supporting SMS, mobile apps, and social media alerts</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>Cloud Computing</h3>
+                            <p>AWS and Azure cloud infrastructure for real-time data processing, ensuring 24/7 system availability and rapid alert distribution</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Mobile Platform</h3>
+                            <p>Cross-platform mobile application providing real-time alerts, flood maps, and emergency guidelines to Sarawak residents</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="about-section team-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <i class="fas fa-users"></i>
+                        <h2>Development Team</h2>
+                    </div>
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <img src="../assets/images/team/enouch.jpg" alt="Enouch Lim" onerror="this.src='https://ui-avatars.com/api/?name=Enouch+Lim&background=0D8ABC&color=fff'">
+                            <h3>Enouch Lim</h3>
+                            <p class="role">Lead Developer</p>
+                            <p class="bio">Full-stack developer specializing in AI integration and system architecture for the Flood AI platform</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="../assets/images/team/mandy.jpg" alt="Mandy Siaw" onerror="this.src='https://ui-avatars.com/api/?name=Mandy+Siaw&background=0D8ABC&color=fff'">
+                            <h3>Mandy Siaw Zhi Lei</h3>
+                            <p class="role">Frontend Developer</p>
+                            <p class="bio">Focused on creating intuitive user interfaces and responsive design for optimal user experience</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="../assets/images/team/vincent.jpg" alt="Vincent Tiong" onerror="this.src='https://ui-avatars.com/api/?name=Vincent+Tiong&background=0D8ABC&color=fff'">
+                            <h3>Vincent Tiong Yong Han</h3>
+                            <p class="role">Backend Developer</p>
+                            <p class="bio">Specializes in data processing and integration of flood prediction algorithms</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="about-section contact-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <i class="fas fa-envelope"></i>
+                        <h2>Contact Us</h2>
+                    </div>
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h3>Address</h3>
+                                    <p>123 Tech Park, Innovation Street<br>Silicon Valley, CA 94025</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h3>Phone</h3>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h3>Email</h3>
+                                    <p>contact@floodai.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="../pages/about.js"></script>
+</body>
+</html> 
