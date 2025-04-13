@@ -10,7 +10,6 @@ const cities = [
     { name: 'Bintulu,Sarawak', country: 'MY', value: 'bintulu' }
 ];
 
-// Function to fetch current weather data for a single city
 async function getCurrentWeatherData(city) {
     try {
         const response = await fetch(`${BASE_URL}/current.json?key=${API_KEY}&q=${city.name}&aqi=yes`);
@@ -35,14 +34,117 @@ async function getCurrentWeatherData(city) {
                 gust_kph: data.current.gust_kph
             };
         } else {
-            throw new Error(`Error fetching data for ${city.name}: ${data.error.message}`);
+            throw new Error(`Error fetching data for ${city.name}`);
         }
     } catch (error) {
-        console.error(`Failed to fetch current weather for ${city.name}:`, error);
+        console.error(`Failed to fetch weather for ${city.name}:`, error);
         return null;
     }
 }
 
+function updateUI(weatherData, selectedCity) {
+    const cityData = weatherData.current_conditions.find(data => data.value === selectedCity);
+    
+    if (cityData) {
+        // Get flood risk prediction
+        const prediction = window.floodModel.predictFloodRisk(cityData);
+        
+        // Update percentage and risk indicator
+        const percentageElement = document.querySelector('.percentage');
+        const riskIndicator = document.querySelector('.risk-indicator');
+        if (percentageElement && riskIndicator) {
+            percentageElement.textContent = `${prediction.percentage}%`;
+            riskIndicator.className = `risk-indicator ${prediction.riskLevel}-risk`;
+        }
+
+        // Update trend
+        const trendElement = document.querySelector('.risk-trend span');
+        const trendIcon = document.querySelector('.risk-trend i');
+        if (trendElement && trendIcon) {
+            trendElement.textContent = prediction.trend;
+            trendIcon.className = `fas fa-arrow-${prediction.trend === 'increasing' ? 'up' : 'down'} trend-${prediction.trend}`;
+        }
+
+        // Update description
+        const description = document.querySelector('.risk-description p');
+        if (description) {
+            const riskText = prediction.riskLevel === 'high' ? 
+                'High risk of flooding in the next 24 hours. Take necessary precautions.' :
+                prediction.riskLevel === 'medium' ?
+                'Medium risk of flooding. Monitor the situation closely.' :
+                'Low risk of flooding. Normal conditions expected.';
+            description.textContent = riskText;
+        }
+
+        // Update weather info
+        const weatherContainer = document.querySelector('.river-info');
+        if (weatherContainer) {
+            weatherContainer.innerHTML = `
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-cloud-rain"></i>
+                    </div>
+                    <div class="info-content">
+                        <span class="label">Rainfall</span>
+                        <span class="value">${cityData.precip_mm}mm</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="info-content">
+                        <span class="label">Humidity</span>
+                        <span class="value">${cityData.humidity}%</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="info-content">
+                        <span class="label">Wind</span>
+                        <span class="value">${cityData.wind_kph} km/h</span>
+                    </div>
+                </div>
+            `;
+        }
+    }
+}
+
+async function updateWeatherData() {
+    const selectedCity = document.getElementById('areaSelect').value;
+    
+    // Collect current conditions for all cities
+    const currentConditions = await Promise.all(
+        cities.map(city => getCurrentWeatherData(city))
+    );
+
+    const weatherData = {
+        timestamp: new Date().toISOString(),
+        current_conditions: currentConditions.filter(data => data !== null)
+    };
+
+    // Update UI
+    updateUI(weatherData, selectedCity);
+
+    return weatherData;
+}
+
+// Initialize when document is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Initial update
+    updateWeatherData();
+
+    // Add event listener for city selection change
+    const areaSelect = document.getElementById('areaSelect');
+    if (areaSelect) {
+        areaSelect.addEventListener('change', updateWeatherData);
+    }
+
+    // Update every 5 minutes
+    setInterval(updateWeatherData, 5 * 60 * 1000);
+}); 
 // Function to fetch forecast data for a single city
 async function getForecastData(city) {
     try {
@@ -85,10 +187,15 @@ function updateWeatherUI(weatherData, selectedCity) {
 
     // Filter data for selected city
     const cityData = weatherData.current_conditions.find(data => data.value === selectedCity);
-    const cityForecast = weatherData.forecasts.find(data => data.value === selectedCity);
-
+    
     if (cityData) {
-        // Current weather
+        // Get flood risk prediction
+        const prediction = floodModel.predictFloodRisk(cityData);
+        
+        // Update UI with prediction
+        updateFloodRiskUI(prediction);
+
+        // Display weather information
         weatherContainer.innerHTML = `
             <div class="info-item">
                 <div class="info-icon">
@@ -119,8 +226,11 @@ function updateWeatherUI(weatherData, selectedCity) {
             </div>
         `;
 
-        // Update risk description based on weather conditions
-        updateRiskDescription(cityData, cityForecast);
+        // Update risk description
+        const description = document.querySelector('.risk-description p');
+        if (description) {
+            description.textContent = `${prediction.riskLevel.charAt(0).toUpperCase() + prediction.riskLevel.slice(1)} risk of flooding. Current rainfall: ${cityData.precip_mm}mm, Humidity: ${cityData.humidity}%`;
+        }
     }
 }
 
